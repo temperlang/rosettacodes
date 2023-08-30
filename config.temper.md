@@ -5,3 +5,4 @@ rosettacode.org/wiki/Averages/Arithmetic_mean corresponds to the
 sub-directory `Averages/Arithmetic_mean`
 
     import("./Averages/Arithmetic_mean");
+    import("./FizzBuzz");
