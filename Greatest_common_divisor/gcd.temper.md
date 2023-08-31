@@ -12,8 +12,9 @@ And also a simpler one of our own.
 
       assert(gcd([12, 18]) == 6) { "bad result" }
 
-Also cases of pure 0.
+Also cases of nothing or pure 0.
 
+      assert((gcd([]) orelse -1) == -1) { "bad success" }
       assert((gcd([0, 0, 0]) orelse -1) == -1) { "bad success" }
 
     }
@@ -21,12 +22,11 @@ Also cases of pure 0.
 ## Implementation
 
     export let gcd(nums: Listed<Int>): Int | NoResult {
+      var result = 0;
+      for (var i = 0; i < nums.length; i += 1) {
 
-Greatest is always positive .
+Greatest is always non-negative.
 
-      var result = abs(nums[0]);
-
-      for (var i = 1; i < nums.length; i += 1) {
         var next = abs(nums[i]);
 
 Loop until we have something perfectly divided.
@@ -45,7 +45,7 @@ that or even use `max`, but because 0, addition is equivalent here.
         result += next;
       }
 
-But check first for 0 before we provide the result, because all 0 is undefined.
+Check first for 0 before we provide the result, because all 0 is undefined.
 
       if (result == 0) { fail() }
       result
