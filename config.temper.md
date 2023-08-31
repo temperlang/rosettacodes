@@ -7,3 +7,4 @@ sub-directory `Averages/Arithmetic_mean`
     import("./Averages/Arithmetic_mean/example");
     import("./Binary_search/binary-search");
     import("./FizzBuzz/logs");
+    import("./Greatest_common_divisor/gcd");

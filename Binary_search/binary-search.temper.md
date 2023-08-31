@@ -36,7 +36,7 @@ Callback block version has an error in TmpL:
 
       // let i = binarySearchRecursive(nums, 5) { (a: Int, b: Int);; a - b };
 
-```log
+```plain
 An operation is not implemented: Translate via value path.  Block/toplevel should handle translation as part of a declaration at TmpLTranslator.kt:1041
 21: hRecursive(nums, 6) { (a: Int, b: Int);; a - b };
                         ┗━━━━━━━━━━━━━━━━━━━━━━━━━━┛
