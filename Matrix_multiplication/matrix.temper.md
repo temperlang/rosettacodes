@@ -29,7 +29,7 @@ instance for multiplication.
 For now, just flatten out flat matrices, but error on mismatch.
 
         if (nrows == 0 || b.ncols == 0) { return new Matrix([]) }
-        if (nrows > 0 && ncols != b.nrows) { fail() }
+        if (ncols != b.nrows) { fail() }
 
 And just do the triple loop. It would be nice to support capacity in
 ListBuilder.
