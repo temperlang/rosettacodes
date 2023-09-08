@@ -3,7 +3,7 @@
 The arithmetic mean is the un-weighted middle point of the samples.
 
     test("meanOfThreeNums") {
-      assert(mean([1.0, 2.0, 3.0] == 2.0));
+      assert(mean([1.0, 2.0, 3.0]) == 2.0);
     }
 
 Unlike the median, the mean of an even sized list is not necessarily
