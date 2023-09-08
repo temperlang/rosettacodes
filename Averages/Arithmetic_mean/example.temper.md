@@ -3,14 +3,14 @@
 The arithmetic mean is the un-weighted middle point of the samples.
 
     test("meanOfThreeNums") {
-      assert(mean([1.0, 2.0, 3.0]) == 2.0) { "bad mean" }
+      assert(mean([1.0, 2.0, 3.0]) == 2.0);
     }
 
 Unlike the median, the mean of an even sized list is not necessarily
 in the list.
 
     test("meanNotMedian") {
-      assert(mean([1.0, 1.0, 1.0, 100.0]) == 25.75) { "bad mean" }
+      assert(mean([1.0, 1.0, 1.0, 100.0]) == 25.75);
     }
 
 The `mean` function takes some samples as a list of floats and returns
