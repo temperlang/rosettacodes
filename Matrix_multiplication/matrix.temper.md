@@ -24,12 +24,12 @@ instance for multiplication.
 
       public data: List<List<Float64>>;
 
-      public times(b: Matrix): Matrix | NoResult {
+      public times(b: Matrix): Matrix | Bubble {
 
 For now, just flatten out flat matrices, but error on mismatch.
 
         if (nrows == 0 || b.ncols == 0) { return new Matrix([]) }
-        if (ncols != b.nrows) { fail() }
+        if (ncols != b.nrows) { bubble() }
 
 And just do the triple loop. It would be nice to support capacity in
 ListBuilder.

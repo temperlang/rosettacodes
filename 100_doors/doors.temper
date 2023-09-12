@@ -1,0 +1,17 @@
+
+var doors = new DenseBitVector(100);
+
+for (var test = 0; test <= 100; test++) {
+  for (var index = 0; index <= 100; index++) {
+    if (index % test == 0) {
+      doors[index] = !doors[index];
+    }
+  }
+}
+
+for (var index = 0; index <= 100; index++) {
+  if (doors[index]) {
+    console.log("${index.toString()} open");
+  }
+}
+

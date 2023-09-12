@@ -21,7 +21,7 @@ Also cases of nothing or pure 0.
 
 ## Implementation
 
-    export let gcd(nums: Listed<Int>): Int | NoResult {
+    export let gcd(nums: Listed<Int>): Int | Bubble {
       var result = 0;
       for (var i = 0; i < nums.length; i += 1) {
 
@@ -47,7 +47,7 @@ that or even use `max`, but because 0, addition is equivalent here.
 
 Check first for 0 before we provide the result, because all 0 is undefined.
 
-      if (result == 0) { fail() }
+      if (result == 0) { bubble() }
       result
     }
 

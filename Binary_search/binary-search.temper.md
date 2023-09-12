@@ -53,15 +53,15 @@ We need an ordered list, a value to look for, and a way to compare values.
       list: Listed<T>,
       value: T,
       compare: fn (T, T): Int,
-    ): Int | NoResult {
+    ): Int | Bubble {
 
 Use an internal closure to recurse on edges while having access to main params.
 
-      let search(lo: Int, hi: Int): Int | NoResult {
+      let search(lo: Int, hi: Int): Int | Bubble {
 
 See if we ran out of options.
 
-        if (hi < lo) { fail() }
+        if (hi < lo) { bubble() }
 
 Otherwise compare the midpoint against our value. Temper int division truncates.
 
