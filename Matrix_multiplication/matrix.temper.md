@@ -12,7 +12,7 @@ Use test case from Rosetta Code. Ints also format more consistently.
 
 And actually check the string value because that's easier for now.
 
-      assert(m == "-7.0, -6.0, 11.0\n-17.0, -20.0, 25.0") { m }
+      assert(m == "-7.0, -6.0, 11.0\n-17.0, -20.0, 25.0");
     }
 
 ## Implementation
