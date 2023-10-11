@@ -22,15 +22,15 @@ And provide -1 for missing in this context.
 
 Check some found cases, including edges.
 
-      assert(findInt(-1) == 0) { "wrong index" }
-      assert(findInt(2) == 2) { "wrong index" }
-      assert(findInt(100) == 5) { "wrong index" }
+      assert(findInt(-1) == 0);
+      assert(findInt(2) == 2);
+      assert(findInt(100) == 5);
 
 Now check some missing cases, including past edges.
 
-      assert(findInt(-2) == -1) { "expected missing" }
-      assert(findInt(1) == -1) { "expected missing" }
-      assert(findInt(101) == -1) { "expected missing" }
+      assert(findInt(-2) == -1);
+      assert(findInt(1) == -1);
+      assert(findInt(101) == -1);
 
 Callback block version has an error in TmpL:
 

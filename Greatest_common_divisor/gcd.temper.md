@@ -6,16 +6,16 @@
 
 Try out the example from Rosetta Code.
 
-      assert(gcd([57, 0, -45, -18, 90, 447]) == 3) { "bad result" }
+      assert(gcd([57, 0, -45, -18, 90, 447]) == 3);
 
 And also a simpler one of our own.
 
-      assert(gcd([12, 18]) == 6) { "bad result" }
+      assert(gcd([12, 18]) == 6);
 
 Also cases of nothing or pure 0.
 
-      assert((gcd([]) orelse -1) == -1) { "bad success" }
-      assert((gcd([0, 0, 0]) orelse -1) == -1) { "bad success" }
+      assert((gcd([]) orelse -1) == -1);
+      assert((gcd([0, 0, 0]) orelse -1) == -1);
 
     }
 
