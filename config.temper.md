@@ -6,6 +6,6 @@ sub-directory `Averages/Arithmetic_mean`
 
     import("./Averages/Arithmetic_mean/example");
     import("./Binary_search/binary-search");
-    import("./FizzBuzz/logs");
+    import("./FizzBuzz/fizz-buzz");
     import("./Greatest_common_divisor/gcd");
     import("./Matrix_multiplication/matrix");
