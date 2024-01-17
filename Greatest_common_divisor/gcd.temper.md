@@ -10,7 +10,7 @@ Try out the example from Rosetta Code.
 
 And also a simpler one of our own.
 
-      assert(gcd([12, 18]) == 6);
+      assert(gcd([12, 30]) == 6);
 
 Also cases of nothing or pure 0.
 
@@ -51,7 +51,7 @@ Check first for 0 before we provide the result, because all 0 is undefined.
       result
     }
 
-Temper doesn't yet have `abs`, so implement it here.
+Temper doesn't yet have `abs` for `Int`, so implement it here.
 
     let abs(i: Int): Int {
       if (i < 0) { -i } else { i }
