@@ -11,6 +11,22 @@ library definition can be used by `temper build` to compile them all.
 
 TODO: A CI run that runs `temper build`
 
+## Translations
+
+If you translate an example from another language, please ensure the source
+`*.temper.md` file includes the URL of the original and the source code in a fenced
+code block.
+
+``````markdown
+<details><summary>This Temper code was adapted from https://url/to/original</summary>
+
+```py
+original source code in a fenced code block
+```
+
+</details>
+``````
+
 ## Contributing
 
 Just add a directory for your example following the convention above
