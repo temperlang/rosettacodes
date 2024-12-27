@@ -15,6 +15,30 @@ And actually check the string value because that's easier for now.
       assert(m == "-7.0, -6.0, 11.0\n-17.0, -20.0, 25.0");
     }
 
+    blah();
+
+    export let blah(): Void | Bubble {
+      let values = do {
+        let values = new ListBuilder<List<Float64>>();
+        for (var i = 0; i < 1e7.toIntUnsafe(); i += 1) {
+          let x = i.toFloat64Unsafe();
+          let xyz = [x / 3.0, x / 5.0, x / 7.0].map { (x): Float64;;
+            (x % 1.0) orelse 0.0
+          };
+          values.add(xyz);
+        }
+        values.toList()
+      };
+      console.log(values.length.toString());
+      let big = new Matrix(values.toList());
+      let product = big.times(new Matrix([[1.0], [1.0], [1.0]]));
+      let sum(values: Listed<Float64>): Float64 {
+        values.reduceFrom(0.0) { (sum: Float64, x): Float64;; sum + x }
+      }
+      let total = sum(product.data.map { (x): Float64;; x.getOr(0, 0.0) });
+      console.log(total.toString());
+    }
+
 ## Implementation
 
     export class Matrix(
