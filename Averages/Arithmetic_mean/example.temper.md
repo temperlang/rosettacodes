@@ -33,5 +33,5 @@ samples.
       }
 
       // We need to convert n to a float explicitly.
-      sum / n.toFloat64()
+      (sum / n.toFloat64()) orelse 0.0
     }

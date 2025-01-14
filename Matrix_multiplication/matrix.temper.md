@@ -17,13 +17,13 @@ And actually check the string value because that's easier for now.
 
 ## Implementation
 
-    export class Matrix {
+    export class Matrix(
 
 Data has to be public in some fashion, or else you can't access from another
 instance for multiplication.
 
-      public data: List<List<Float64>>;
-
+      public data: List<List<Float64>>,
+    ) {
       public times(b: Matrix): Matrix | Bubble {
 
 For now, just flatten out flat matrices, but error on mismatch.
@@ -55,7 +55,7 @@ Return is required here due to some compiler bug.
 Provide conveniences.
 
       public get ncols(): Int {
-        if (nrows > 0) { data[0].length } else { 0 }
+        data[0].length orelse 0
       }
 
       public get nrows(): Int {
