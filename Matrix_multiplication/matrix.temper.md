@@ -20,7 +20,7 @@ And actually check the string value because that's easier for now.
     export let blah(): Void | Bubble {
       let values = do {
         let values = new ListBuilder<List<Float64>>();
-        for (var i = 0; i < 1e7.toIntUnsafe(); i += 1) {
+        for (var i = 0; i < 1e6.toIntUnsafe(); i += 1) {
           let x = i.toFloat64Unsafe();
           let xyz = [x / 3.0, x / 5.0, x / 7.0].map { (x): Float64;;
             (x % 1.0) orelse 0.0
