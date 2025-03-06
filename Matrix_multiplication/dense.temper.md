@@ -52,8 +52,7 @@ Here's the multiply.
 
       let product = big.times(new Dense([1.0, 1.0, 1.0], middle));
 
-Sum the product for an easy way to check consistency across backends. The
-product is Nx1, so we can sum the first value of each row.
+Sum the product for an easy way to check consistency across backends.
 
       let sum(values: Listed<Float64>): Float64 {
         values.reduceFrom(0.0) { (sum: Float64, x): Float64;; sum + x }
