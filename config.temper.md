@@ -8,4 +8,5 @@ sub-directory `Averages/Arithmetic_mean`
     import("./Binary_search/binary-search");
     import("./FizzBuzz/fizz-buzz");
     import("./Greatest_common_divisor/gcd");
+    import("./Matrix_multiplication/dense");
     import("./Matrix_multiplication/matrix");
