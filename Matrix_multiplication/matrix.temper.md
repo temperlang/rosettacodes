@@ -1,5 +1,7 @@
 # Matrix math
 
+This implementation uses one array per row.
+
 ## Test
 
     test("multiply") {
@@ -15,12 +17,19 @@ And actually check the string value because that's easier for now.
       assert(m == "-7.0, -6.0, 11.0\n-17.0, -20.0, 25.0");
     }
 
-    blah();
+## Benchmark
 
-    export let blah(): Void | Bubble {
+Also provide a function for benchmarking matrix multiplication. Just keep the
+running of it disabled by default.
+
+    // benchmark(1e6.toIntUnsafe());
+    export let benchmark(nrows: Int): Void | Bubble {
+
+Provide a lot of distinct small values for matrix content.
+
       let values = do {
         let values = new ListBuilder<List<Float64>>();
-        for (var i = 0; i < 1e6.toIntUnsafe(); i += 1) {
+        for (var i = 0; i < nrows; i += 1) {
           let x = i.toFloat64Unsafe();
           let xyz = [x / 3.0, x / 5.0, x / 7.0].map { (x): Float64;;
             (x % 1.0) orelse 0.0
@@ -29,9 +38,19 @@ And actually check the string value because that's easier for now.
         }
         values.toList()
       };
+
+And log our size for a record of it when running.
+
       console.log(values.length.toString());
       let big = new Matrix(values.toList());
+
+Here's the multiply.
+
       let product = big.times(new Matrix([[1.0], [1.0], [1.0]]));
+
+Sum the product for an easy way to check consistency across backends. The
+product is Nx1, so we can sum the first value of each row.
+
       let sum(values: Listed<Float64>): Float64 {
         values.reduceFrom(0.0) { (sum: Float64, x): Float64;; sum + x }
       }
