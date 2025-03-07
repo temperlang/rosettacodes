@@ -65,7 +65,7 @@ index 0, so we can use 1-based indexing to match the looping logic.
 
       let messages = new ListBuilder<String>();
       messages.add("ignore");
-      fizzBuzzInto { (message);; messages.add(message); }
+      fizzBuzzInto { (message);; messages.add(message) orelse void; }
 
 Now check some values.
 
