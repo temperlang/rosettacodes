@@ -46,7 +46,7 @@ And log our size for a record of it when running.
 
       console.log(values.length.toString());
       let middle = 3;
-      let big = new Dense(values.toList(), (values.length / middle) orelse 0);
+      let big = new Dense(values.toList(), nrows);
 
 Here's the multiply.
 
@@ -77,8 +77,8 @@ instance for multiplication.
 
 For now, just flatten out flat matrices, but error on mismatch.
 
-        if (nrows == 0 || b.ncols == 0) { return new Dense([], 0) }
         if (ncols != b.nrows) { bubble() }
+        if (nrows == 0 || b.ncols == 0) { return new Dense([], 0) }
 
 And just do the triple loop. It would be nice to support capacity in
 ListBuilder.
