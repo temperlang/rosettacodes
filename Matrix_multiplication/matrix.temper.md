@@ -22,16 +22,16 @@ And actually check the string value because that's easier for now.
 Also provide a function for benchmarking matrix multiplication. Just keep the
 running of it disabled by default.
 
-    // benchmark(1e6.toIntUnsafe());
-    export let benchmark(nrows: Int): Void | Bubble {
+    // benchmark(1e6.toInt32Unsafe());
+    export let benchmark(nrows: Int): Void throws Bubble {
 
 Provide a lot of distinct small values for matrix content.
 
       let values = do {
         let values = new ListBuilder<List<Float64>>();
         for (var i = 0; i < nrows; i += 1) {
-          let x = i.toFloat64Unsafe();
-          let xyz = [x / 3.0, x / 5.0, x / 7.0].map { (x): Float64;;
+          let x = i.toFloat64();
+          let xyz = [x / 3.0, x / 5.0, x / 7.0].map { (x): Float64 =>
             (x % 1.0) orelse 0.0
           };
           values.add(xyz);
@@ -52,9 +52,9 @@ Sum the product for an easy way to check consistency across backends. The
 product is Nx1, so we can sum the first value of each row.
 
       let sum(values: Listed<Float64>): Float64 {
-        values.reduceFrom(0.0) { (sum: Float64, x): Float64;; sum + x }
+        values.reduceFrom(0.0) { (sum: Float64, x): Float64 => sum + x }
       }
-      let total = sum(product.data.map { (x): Float64;; x.getOr(0, 0.0) });
+      let total = sum(product.data.map { (x): Float64 => x.getOr(0, 0.0) });
       console.log(total.toString());
     }
 
@@ -67,7 +67,7 @@ instance for multiplication.
 
       public data: List<List<Float64>>,
     ) {
-      public times(b: Matrix): Matrix | Bubble {
+      public times(b: Matrix): Matrix throws Bubble {
 
 For now, just flatten out flat matrices, but error on mismatch.
 
@@ -92,7 +92,7 @@ ListBuilder.
 
 Return is required here due to some compiler bug.
 
-        return new Matrix(result.map { (row): List<Float64>;; row.toList() });
+        return new Matrix(result.map { (row): List<Float64> => row.toList() });
       }
 
 Provide conveniences.
@@ -106,6 +106,6 @@ Provide conveniences.
       }
 
       public toString(): String {
-        data.join("\n") { (row);; row.join(", ") { (it);; it.toString() } }
+        data.join("\n") { row => row.join(", ") { it => it.toString() } }
       }
     }

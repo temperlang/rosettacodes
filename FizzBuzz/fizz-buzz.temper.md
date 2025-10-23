@@ -50,7 +50,7 @@ We can also make a support function that logs each message. The exact behavior
 of `console.log` depends on the logging configuration for a particular backend.
 
     export let fizzBuzz(): Void {
-      fizzBuzzInto { (message);; console.log(message); }
+      fizzBuzzInto { message => console.log(message); }
     }
 
 ## Test
@@ -65,7 +65,7 @@ index 0, so we can use 1-based indexing to match the looping logic.
 
       let messages = new ListBuilder<String>();
       messages.add("ignore");
-      fizzBuzzInto { (message);; messages.add(message) orelse void; }
+      fizzBuzzInto { message => messages.add(message) orelse void; }
 
 Now check some values.
 

@@ -23,15 +23,15 @@ Also provide a function for benchmarking matrix multiplication. Just keep the
 running of it disabled by default. The dense matrix can more easily go larger
 than the array-per-row version.
 
-    // benchmarkDense(1e7.toIntUnsafe());
-    export let benchmarkDense(nrows: Int): Void | Bubble {
+    // benchmarkDense(1e7.toInt32Unsafe());
+    export let benchmarkDense(nrows: Int): Void throws Bubble {
 
 Provide a lot of distinct small values for matrix content.
 
       let values = do {
         let values = new ListBuilder<Float64>();
         for (var i = 0; i < nrows; i += 1) {
-          let x = i.toFloat64Unsafe();
+          let x = i.toFloat64();
           let addDiv(divisor: Float64): Void {
             values.add(((x / divisor) % 1.0) orelse 0.0) orelse void;
           }
@@ -55,7 +55,7 @@ Here's the multiply.
 Sum the product for an easy way to check consistency across backends.
 
       let sum(values: Listed<Float64>): Float64 {
-        values.reduceFrom(0.0) { (sum: Float64, x): Float64;; sum + x }
+        values.reduceFrom(0.0) { (sum: Float64, x): Float64 => sum + x }
       }
       let total = sum(product.data);
       console.log(total.toString());
@@ -73,7 +73,7 @@ instance for multiplication.
     ) {
       public ncols: Int = (data.length / nrows) orelse 0;
 
-      public times(b: Dense): Dense | Bubble {
+      public times(b: Dense): Dense throws Bubble {
 
 For now, just flatten out flat matrices, but error on mismatch.
 
@@ -121,7 +121,3 @@ Provide conveniences.
         builder.toString()
       }
     }
-
-## Imports
-
-    let { StringBuilder } = import("std/strings");
