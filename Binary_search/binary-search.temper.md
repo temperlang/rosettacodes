@@ -34,11 +34,11 @@ Now check some missing cases, including past edges.
 
 Callback block version has an error in TmpL:
 
-      // let i = binarySearchRecursive(nums, 5) { (a: Int, b: Int);; a - b };
+      // let i = binarySearchRecursive(nums, 5) { a: Int, b: Int => a - b };
 
 ```plain
 An operation is not implemented: Translate via value path.  Block/toplevel should handle translation as part of a declaration at TmpLTranslator.kt:1041
-21: hRecursive(nums, 6) { (a: Int, b: Int);; a - b };
+21: hRecursive(nums, 6) { a: Int, b: Int => a - b };
                         ┗━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 [-work//Binary_search/binary-search.temper.md+440-468]: Cannot translate An operation is not implemented: Translate via value path.  Block/toplevel should handle translation as part of a declaration: ❎
 ```
@@ -53,11 +53,11 @@ We need an ordered list, a value to look for, and a way to compare values.
       list: Listed<T>,
       value: T,
       compare: fn (T, T): Int,
-    ): Int | Bubble {
+    ): Int throws Bubble {
 
 Use an internal closure to recurse on edges while having access to main params.
 
-      let search(lo: Int, hi: Int): Int | Bubble {
+      let search(lo: Int, hi: Int): Int throws Bubble {
 
 See if we ran out of options.
 

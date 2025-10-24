@@ -21,7 +21,7 @@ Also cases of nothing or pure 0.
 
 ## Implementation
 
-    export let gcd(nums: Listed<Int>): Int | Bubble {
+    export let gcd(nums: Listed<Int>): Int throws Bubble {
       var result = 0;
       for (var i = 0; i < nums.length; i += 1) {
 
